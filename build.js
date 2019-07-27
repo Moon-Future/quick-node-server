@@ -10,7 +10,7 @@ let fileList = [config.framework === 'koa' ? 'koa' : 'express']
 if (config.database) {
   fileList.push(config.database === 'mysql' ? 'mysql' : 'mongodb')
 }
-console.log(`框架: ${config.framework}, 数据库: ${config.database}`)
+console.log(`框架: ${config.framework}, 数据库: ${config.database || '无'}`)
 
 function clear(filePath) {
   let dirList = fs.readdirSync(filePath)
@@ -35,7 +35,10 @@ function copy(target, source) {
     if (stats.isFile()) {
       let fileContent = fs.readFileSync(sourceFile, 'utf-8')
       if (fileContent.indexOf('---replace---') !== -1) {
-        if (config.database === 'mysql') {
+        if (!config.database) {
+          fileContent = fileContent.replace(/\/\/ ---replace--- Mongodb(.|\r\n)*---replace--- Mongodb/g, '')
+          fileContent = fileContent.replace(/\/\/ ---replace--- Mysql(.|\r\n)*---replace--- Mysql/g, '')
+        } else if (config.database === 'mysql') {
           fileContent = fileContent.replace(/\/\/ ---replace--- Mongodb(.|\r\n)*---replace--- Mongodb/g, '')
         } else {
           fileContent = fileContent.replace(/\/\/ ---replace--- Mysql(.|\r\n)*---replace--- Mysql/g, '')
