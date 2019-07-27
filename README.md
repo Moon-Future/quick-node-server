@@ -44,3 +44,7 @@ cd server\
 npm install
 node index.js
 ```
+
+## PS
+1、生成server文件夹后，就可以将server文件夹拷贝到项目中使用  
+2、数据库要事先建立好
