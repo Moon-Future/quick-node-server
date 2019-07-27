@@ -1,9 +1,9 @@
 # 快速建立node后端服务
 
-    基于Koa2、Express、Mysql、Mongodb快速建立Node后端服务，实现前后端通讯。 
+    基于Koa2、Express、Mysql、Mongodb快速建立Node后端服务，实现前后端通讯。
 
 ## 框架、数据库组合
-在配置文件 ./config.js 中可自由设置组合，框架二选一，数据库二选一，也可不选。  
+在配置文件 ./config.js 中可自由设置组合，框架二选一，数据库二选一，也可不选  
 - [ ] koa
 - [ ] express
 - [ ] mysql
@@ -19,7 +19,7 @@ module.exports = {
 ```
 
 ## 生成server文件夹
-选择好框架、数据库后，运行 node build.js 生成server文件夹、package.json及相关代码文件。
+选择好框架、数据库后，运行 node build.js 生成server文件夹、package.json及相关代码文件
 
 ## 安装包
 进入server文件夹，安装依赖包
@@ -39,7 +39,7 @@ node index.js
 ## 总结
 ```js
 配置文件 config.js
-node index.js
+node build.js
 cd server\
 npm install
 node index.js
